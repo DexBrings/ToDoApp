@@ -9,7 +9,7 @@ namespace ToDoApp
             // Anwendung: ToDo-List
             // Add, View, Delete, Quit
 
-            string[] todoList = new string[10];
+            string[] todoList = new string[5];
 
             int currentTaskCount = 0;
 
@@ -54,21 +54,31 @@ namespace ToDoApp
                     {
                         Console.WriteLine("Ungültige Eingabe!");
 
-                    }else if(deleteNumber == todoList.Length -1)
+                    }
+                    else if (deleteNumber == todoList.Length - 1)
                     {
-                            todoList[deleteNumber] = "";
-                            currentTaskCount--;
+                        todoList[deleteNumber] = "";
+                        currentTaskCount--;
 
-                    } else
+                    }
+                    else
                     {
                         for (int i = deleteNumber; i < currentTaskCount; i++)
                         {
                             todoList[i] = todoList[i + 1];
                         }
 
-                        currentTaskCount--;
+                        if (currentTaskCount > 1)
+                        {
+                            currentTaskCount--;
+                        }
+                        else
+                        {
+                            currentTaskCount = 0;
+                        }
+
                     }
-                        
+
                 }
 
             }
